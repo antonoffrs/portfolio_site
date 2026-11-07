@@ -74,7 +74,7 @@
     </nav>
 
     <!-- Секция Hero -->
-    <section id="home" class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden min-h-screen flex items-center bg-white">
+    <section id="home" class="relative pt-28 pb-20 lg:pt-40 lg:pb-28 overflow-hidden min-h-screen flex items-center bg-white">
         <!-- Декоративный фон -->
         <div class="absolute inset-0 z-0 overflow-hidden" id="hero-bg-container">
             <div class="absolute -top-24 -right-24 w-96 h-96 bg-brand-50 rounded-full blur-3xl opacity-50"></div>
@@ -84,7 +84,7 @@
             <canvas id="ai-canvas" class="absolute inset-0 z-0 opacity-50 w-full h-full"></canvas>
         </div>
 
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
             <div class="max-w-3xl">
                 <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-50 text-brand-600 text-sm font-semibold mb-6 border border-brand-100">
                     <span class="relative flex h-2 w-2">
@@ -97,15 +97,54 @@
                     Управление масштабными <br> <span class="text-brand-600">IT-проектами и программами</span>
                 </h1>
                 <p class="text-xl md:text-2xl text-slate-600 mb-10 leading-relaxed font-light">
-                    Меня зовут Роман Антонов, я сертифицированный руководитель IT-проектов и программ (PME, PRIME) с 19-летним опытом в ИТ и инжиниринге. Управляю проектами облачной миграции (IaaS, PaaS, AI/ML, ЗОКИИ), созданием ЦОДов и модернизацией ИТ-инфраструктуры с бюджетами свыше 1 млрд руб. Опыт работы на всех сторонах процесса: облачный провайдер, системный интегратор, крупный бизнес и госзаказчик.
+                    Меня зовут Роман Антонов, я сертифицированный руководитель IT-проектов и программ (PME, PRIME) с 19-летним опытом в ИТ и инжиниринге. Управляю проектами облачной миграции (IaaS, PaaS, AI/ML, ЗОКИИ), созданием ЦОД и модернизацией ИТ-инфраструктуры с бюджетами свыше 1 млрд руб. Опыт работы на всех сторонах процесса: облачный провайдер, системный интегратор, крупный бизнес и госзаказчик.
                 </p>
-                <div class="flex flex-col sm:flex-row gap-4">
+                <div class="flex flex-col sm:flex-row gap-4 mb-12">
                     <a href="#contact" class="inline-flex justify-center items-center px-8 py-3.5 rounded-lg bg-brand-600 hover:bg-brand-700 text-white font-medium transition-colors shadow-lg shadow-brand-500/30">
                         Связаться со мной
                     </a>
                     <a href="#experience" class="inline-flex justify-center items-center px-8 py-3.5 rounded-lg bg-white border border-slate-300 hover:border-brand-500 hover:text-brand-600 text-slate-700 font-medium transition-colors shadow-sm">
                         Смотреть опыт работы
                     </a>
+                </div>
+            </div>
+
+            <!-- Визуальная плашка с ключевыми цифрами -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-4">
+                <div class="bg-white/90 backdrop-blur-sm p-6 rounded-2xl border border-slate-200 shadow-sm hover:border-brand-300 hover:shadow-md transition-all">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-xs font-semibold uppercase tracking-wider text-slate-400">Масштаб бюджетов</span>
+                        <i class="ph ph-currency-rub text-2xl text-brand-600 bg-brand-50 p-2 rounded-lg"></i>
+                    </div>
+                    <div class="text-3xl font-bold text-slate-900">&gt; 1 млрд ₽</div>
+                    <p class="text-sm text-slate-600 mt-1">Успешная реализация сложных инфраструктурных и облачных проектов</p>
+                </div>
+
+                <div class="bg-white/90 backdrop-blur-sm p-6 rounded-2xl border border-slate-200 shadow-sm hover:border-brand-300 hover:shadow-md transition-all">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-xs font-semibold uppercase tracking-wider text-slate-400">Экспертиза</span>
+                        <i class="ph ph-briefcase text-2xl text-brand-600 bg-brand-50 p-2 rounded-lg"></i>
+                    </div>
+                    <div class="text-3xl font-bold text-slate-900">19 лет в ИТ</div>
+                    <p class="text-sm text-slate-600 mt-1">10+ лет в роли PM и 4 года управления облачной миграцией</p>
+                </div>
+
+                <div class="bg-white/90 backdrop-blur-sm p-6 rounded-2xl border border-slate-200 shadow-sm hover:border-brand-300 hover:shadow-md transition-all">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-xs font-semibold uppercase tracking-wider text-slate-400">Квалификация</span>
+                        <i class="ph ph-certificate text-2xl text-brand-600 bg-brand-50 p-2 rounded-lg"></i>
+                    </div>
+                    <div class="text-3xl font-bold text-brand-600">PRIME &bull; PME</div>
+                    <p class="text-sm text-slate-600 mt-1">Сертифицированное управление портфелями, программами и проектами</p>
+                </div>
+
+                <div class="bg-white/90 backdrop-blur-sm p-6 rounded-2xl border border-slate-200 shadow-sm hover:border-brand-300 hover:shadow-md transition-all">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="text-xs font-semibold uppercase tracking-wider text-slate-400">Опыт 360°</span>
+                        <i class="ph ph-users-three text-2xl text-brand-600 bg-brand-50 p-2 rounded-lg"></i>
+                    </div>
+                    <div class="text-3xl font-bold text-slate-900">25+ человек</div>
+                    <p class="text-sm text-slate-600 mt-1">Кросс-функциональные команды (Cloud, Интегратор, Бизнес, Госсектор)</p>
                 </div>
             </div>
         </div>
