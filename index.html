@@ -13,6 +13,7 @@
     
     <script>
         tailwind.config = {
+            darkMode: 'class',
             theme: {
                 extend: {
                     fontFamily: {
@@ -22,6 +23,7 @@
                         brand: {
                             50: '#eff6ff',
                             100: '#dbeafe',
+                            400: '#60a5fa',
                             500: '#3b82f6',
                             600: '#2563eb',
                             800: '#1e40af',
@@ -50,33 +52,56 @@
             background: rgba(255, 255, 255, 0.9);
             backdrop-filter: blur(10px);
         }
+        .dark .glass-nav {
+            background: rgba(15, 23, 42, 0.9);
+        }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-800 antialiased selection:bg-brand-500 selection:text-white">
+<body class="bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 antialiased selection:bg-brand-500 selection:text-white transition-colors duration-300">
 
     <!-- Навигация -->
-    <nav class="fixed w-full z-50 top-0 glass-nav border-b border-slate-200 transition-all duration-300">
+    <nav class="fixed w-full z-50 top-0 glass-nav border-b border-slate-200 dark:border-slate-800 transition-all duration-300">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-end h-16">
+            <div class="flex items-center justify-end h-16 gap-4">
                 <div class="hidden md:block">
                     <div class="flex items-baseline space-x-6">
-                        <a href="#home" class="hover:text-brand-600 text-slate-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">Главная</a>
-                        <a href="#cases" class="hover:text-brand-600 text-slate-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">Кейсы</a>
-                        <a href="#experience" class="hover:text-brand-600 text-slate-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">Опыт работы</a>
-                        <a href="#skills" class="hover:text-brand-600 text-slate-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">Компетенции</a>
-                        <a href="#contact" class="hover:text-brand-600 text-slate-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">Контакты</a>
+                        <a href="#home" class="hover:text-brand-600 dark:hover:text-brand-400 text-slate-600 dark:text-slate-300 px-3 py-2 rounded-md text-sm font-medium transition-colors">
+                            <span class="lang-ru">Главная</span><span class="lang-en hidden">Home</span>
+                        </a>
+                        <a href="#cases" class="hover:text-brand-600 dark:hover:text-brand-400 text-slate-600 dark:text-slate-300 px-3 py-2 rounded-md text-sm font-medium transition-colors">
+                            <span class="lang-ru">Кейсы</span><span class="lang-en hidden">Cases</span>
+                        </a>
+                        <a href="#experience" class="hover:text-brand-600 dark:hover:text-brand-400 text-slate-600 dark:text-slate-300 px-3 py-2 rounded-md text-sm font-medium transition-colors">
+                            <span class="lang-ru">Опыт работы</span><span class="lang-en hidden">Experience</span>
+                        </a>
+                        <a href="#skills" class="hover:text-brand-600 dark:hover:text-brand-400 text-slate-600 dark:text-slate-300 px-3 py-2 rounded-md text-sm font-medium transition-colors">
+                            <span class="lang-ru">Компетенции</span><span class="lang-en hidden">Skills</span>
+                        </a>
+                        <a href="#contact" class="hover:text-brand-600 dark:hover:text-brand-400 text-slate-600 dark:text-slate-300 px-3 py-2 rounded-md text-sm font-medium transition-colors">
+                            <span class="lang-ru">Контакты</span><span class="lang-en hidden">Contact</span>
+                        </a>
                     </div>
+                </div>
+
+                <!-- Переключатели языка и темы -->
+                <div class="flex items-center gap-2 pl-2 md:border-l border-slate-200 dark:border-slate-700">
+                    <button id="lang-toggle" class="px-3 py-1.5 rounded-lg text-xs font-bold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:bg-brand-50 dark:hover:bg-slate-700 hover:text-brand-600 dark:hover:text-brand-400 transition-colors border border-slate-200 dark:border-slate-700">
+                        EN
+                    </button>
+                    <button id="theme-toggle" class="p-2 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:bg-brand-50 dark:hover:bg-slate-700 hover:text-brand-600 dark:hover:text-brand-400 transition-colors border border-slate-200 dark:border-slate-700 flex items-center justify-center" aria-label="Toggle Dark Mode">
+                        <i id="theme-icon" class="ph ph-moon text-lg"></i>
+                    </button>
                 </div>
             </div>
         </div>
     </nav>
 
     <!-- Секция Hero -->
-    <section id="home" class="relative pt-28 pb-20 lg:pt-40 lg:pb-28 overflow-hidden min-h-screen flex items-center bg-white">
+    <section id="home" class="relative pt-28 pb-20 lg:pt-40 lg:pb-28 overflow-hidden min-h-screen flex items-center bg-white dark:bg-slate-900 transition-colors duration-300">
         <!-- Декоративный фон -->
         <div class="absolute inset-0 z-0 overflow-hidden" id="hero-bg-container">
-            <div class="absolute -top-24 -right-24 w-96 h-96 bg-brand-50 rounded-full blur-3xl opacity-50"></div>
-            <div class="absolute top-1/2 -left-24 w-72 h-72 bg-blue-50 rounded-full blur-3xl opacity-50"></div>
+            <div class="absolute -top-24 -right-24 w-96 h-96 bg-brand-50 dark:bg-brand-900/20 rounded-full blur-3xl opacity-50"></div>
+            <div class="absolute top-1/2 -left-24 w-72 h-72 bg-blue-50 dark:bg-blue-900/20 rounded-full blur-3xl opacity-50"></div>
             
             <!-- Интерактивный Canvas AI-фон -->
             <canvas id="ai-canvas" class="absolute inset-0 z-0 opacity-50 w-full h-full"></canvas>
@@ -84,158 +109,247 @@
 
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
             <div class="max-w-3xl">
-                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-50 text-brand-600 text-sm font-semibold mb-6 border border-brand-100">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-50 dark:bg-brand-900/40 text-brand-600 dark:text-brand-400 text-sm font-semibold mb-6 border border-brand-100 dark:border-brand-800">
                     <span class="relative flex h-2 w-2">
                       <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-400 opacity-75"></span>
                       <span class="relative inline-flex rounded-full h-2 w-2 bg-brand-500"></span>
                     </span>
-                    Открыт к предложениям • PME, PRIME
+                    <span class="lang-ru">Открыт к предложениям • PME, PRIME</span>
+                    <span class="lang-en hidden">Open to opportunities • PME, PRIME</span>
                 </div>
-                <h1 class="text-4xl md:text-6xl font-bold mb-6 tracking-tight text-slate-900 leading-tight">
-                    Управление масштабными <br> <span class="text-brand-600">IT-проектами и программами</span>
+                <h1 class="text-4xl md:text-6xl font-bold mb-6 tracking-tight text-slate-900 dark:text-white leading-tight">
+                    <span class="lang-ru">Управление масштабными <br> <span class="text-brand-600 dark:text-brand-400">IT-проектами и программами</span></span>
+                    <span class="lang-en hidden">Enterprise <br> <span class="text-brand-600 dark:text-brand-400">IT Project &amp; Program Management</span></span>
                 </h1>
-                <p class="text-xl md:text-2xl text-slate-600 mb-10 leading-relaxed font-light">
-                    Меня зовут Роман Антонов, я сертифицированный руководитель IT-проектов и программ (PME, PRIME) с 19-летним опытом в ИТ и инжиниринге. Управляю проектами облачной миграции (IaaS, PaaS, AI/ML, ЗОКИИ), созданием ЦОД и модернизацией ИТ-инфраструктуры с бюджетами свыше 1 млрд руб. Опыт работы на всех сторонах процесса: облачный провайдер, системный интегратор, крупный бизнес и госзаказчик.
+                <p class="text-xl md:text-2xl text-slate-600 dark:text-slate-300 mb-10 leading-relaxed font-light">
+                    <span class="lang-ru">Меня зовут Роман Антонов, я сертифицированный руководитель IT-проектов и программ (PME, PRIME) с 19-летним опытом в ИТ и инжиниринге. Управляю проектами облачной миграции (IaaS, PaaS, AI/ML, ЗОКИИ), созданием ЦОД и модернизацией ИТ-инфраструктуры с бюджетами свыше 1 млрд руб. Опыт работы на всех сторонах процесса: облачный провайдер, системный интегратор, крупный бизнес и госзаказчик.</span>
+                    <span class="lang-en hidden">I am Roman Antonov, a certified IT Project &amp; Program Manager (PME, PRIME) with 19 years of experience in IT and engineering. I lead complex cloud migration initiatives (IaaS, PaaS, AI/ML, Critical Infrastructure), Data Center construction, and enterprise IT infrastructure modernization with budgets exceeding 1B RUB. Unique 360° perspective across Cloud Provider, Systems Integrator, Industrial Enterprise, and GovTech Client roles.</span>
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 mb-12">
                     <a href="#contact" class="inline-flex justify-center items-center px-8 py-3.5 rounded-lg bg-brand-600 hover:bg-brand-700 text-white font-medium transition-colors shadow-lg shadow-brand-500/30">
-                        Связаться со мной
+                        <span class="lang-ru">Связаться со мной</span><span class="lang-en hidden">Contact Me</span>
                     </a>
-                    <a href="#cases" class="inline-flex justify-center items-center px-8 py-3.5 rounded-lg bg-white border border-slate-300 hover:border-brand-500 hover:text-brand-600 text-slate-700 font-medium transition-colors shadow-sm">
-                        Смотреть кейсы
+                    <a href="#cases" class="inline-flex justify-center items-center px-8 py-3.5 rounded-lg bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 hover:border-brand-500 dark:hover:border-brand-400 hover:text-brand-600 dark:hover:text-brand-400 text-slate-700 dark:text-slate-200 font-medium transition-colors shadow-sm">
+                        <span class="lang-ru">Смотреть кейсы</span><span class="lang-en hidden">View Case Studies</span>
                     </a>
                 </div>
             </div>
 
             <!-- Визуальная плашка с ключевыми цифрами -->
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-4">
-                <div class="bg-white/90 backdrop-blur-sm p-6 rounded-2xl border border-slate-200 shadow-sm hover:border-brand-300 hover:shadow-md transition-all">
+                <div class="bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm p-6 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-brand-300 dark:hover:border-brand-500 hover:shadow-md transition-all">
                     <div class="flex items-center justify-between mb-3">
-                        <span class="text-xs font-semibold uppercase tracking-wider text-slate-400">Масштаб бюджетов</span>
-                        <i class="ph ph-currency-rub text-2xl text-brand-600 bg-brand-50 p-2 rounded-lg"></i>
+                        <span class="text-xs font-semibold uppercase tracking-wider text-slate-400">
+                            <span class="lang-ru">Масштаб бюджетов</span><span class="lang-en hidden">Budget Scale</span>
+                        </span>
+                        <i class="ph ph-currency-rub text-2xl text-brand-600 dark:text-brand-400 bg-brand-50 dark:bg-brand-900/40 p-2 rounded-lg"></i>
                     </div>
-                    <div class="text-3xl font-bold text-slate-900">&gt; 1 млрд ₽</div>
-                    <p class="text-sm text-slate-600 mt-1">Успешная реализация сложных инфраструктурных и облачных проектов</p>
+                    <div class="text-3xl font-bold text-slate-900 dark:text-white">
+                        <span class="lang-ru">&gt; 1 млрд ₽</span><span class="lang-en hidden">&gt; 1B RUB</span>
+                    </div>
+                    <p class="text-sm text-slate-600 dark:text-slate-400 mt-1">
+                        <span class="lang-ru">Успешная реализация сложных инфраструктурных и облачных проектов</span>
+                        <span class="lang-en hidden">End-to-end delivery of complex cloud and infrastructure programs</span>
+                    </p>
                 </div>
 
-                <div class="bg-white/90 backdrop-blur-sm p-6 rounded-2xl border border-slate-200 shadow-sm hover:border-brand-300 hover:shadow-md transition-all">
+                <div class="bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm p-6 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-brand-300 dark:hover:border-brand-500 hover:shadow-md transition-all">
                     <div class="flex items-center justify-between mb-3">
-                        <span class="text-xs font-semibold uppercase tracking-wider text-slate-400">Экспертиза</span>
-                        <i class="ph ph-briefcase text-2xl text-brand-600 bg-brand-50 p-2 rounded-lg"></i>
+                        <span class="text-xs font-semibold uppercase tracking-wider text-slate-400">
+                            <span class="lang-ru">Экспертиза</span><span class="lang-en hidden">Track Record</span>
+                        </span>
+                        <i class="ph ph-briefcase text-2xl text-brand-600 dark:text-brand-400 bg-brand-50 dark:bg-brand-900/40 p-2 rounded-lg"></i>
                     </div>
-                    <div class="text-3xl font-bold text-slate-900">19 лет в ИТ</div>
-                    <p class="text-sm text-slate-600 mt-1">10+ лет в роли PM и глубокая инженерная база (ЦОД, сети, СМР/ПНР)</p>
+                    <div class="text-3xl font-bold text-slate-900 dark:text-white">
+                        <span class="lang-ru">19 лет в ИТ</span><span class="lang-en hidden">19 Years in IT</span>
+                    </div>
+                    <p class="text-sm text-slate-600 dark:text-slate-400 mt-1">
+                        <span class="lang-ru">10+ лет в роли PM и глубокая инженерная база (ЦОД, сети, СМР/ПНР)</span>
+                        <span class="lang-en hidden">10+ years in PM leadership backed by deep engineering roots</span>
+                    </p>
                 </div>
 
-                <div class="bg-white/90 backdrop-blur-sm p-6 rounded-2xl border border-slate-200 shadow-sm hover:border-brand-300 hover:shadow-md transition-all">
+                <div class="bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm p-6 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-brand-300 dark:hover:border-brand-500 hover:shadow-md transition-all">
                     <div class="flex items-center justify-between mb-3">
-                        <span class="text-xs font-semibold uppercase tracking-wider text-slate-400">Квалификация</span>
-                        <i class="ph ph-certificate text-2xl text-brand-600 bg-brand-50 p-2 rounded-lg"></i>
+                        <span class="text-xs font-semibold uppercase tracking-wider text-slate-400">
+                            <span class="lang-ru">Квалификация</span><span class="lang-en hidden">Credentials</span>
+                        </span>
+                        <i class="ph ph-certificate text-2xl text-brand-600 dark:text-brand-400 bg-brand-50 dark:bg-brand-900/40 p-2 rounded-lg"></i>
                     </div>
-                    <div class="text-3xl font-bold text-brand-600">PRIME &bull; PME</div>
-                    <p class="text-sm text-slate-600 mt-1">Сертифицированное управление портфелями, программами и проектами</p>
+                    <div class="text-3xl font-bold text-brand-600 dark:text-brand-400">PRIME &bull; PME</div>
+                    <p class="text-sm text-slate-600 dark:text-slate-400 mt-1">
+                        <span class="lang-ru">Сертифицированное управление портфелями, программами и проектами</span>
+                        <span class="lang-en hidden">Certified Portfolio, Program, and Project Management Expert</span>
+                    </p>
                 </div>
 
-                <div class="bg-white/90 backdrop-blur-sm p-6 rounded-2xl border border-slate-200 shadow-sm hover:border-brand-300 hover:shadow-md transition-all">
+                <div class="bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm p-6 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:border-brand-300 dark:hover:border-brand-500 hover:shadow-md transition-all">
                     <div class="flex items-center justify-between mb-3">
-                        <span class="text-xs font-semibold uppercase tracking-wider text-slate-400">Опыт 360°</span>
-                        <i class="ph ph-users-three text-2xl text-brand-600 bg-brand-50 p-2 rounded-lg"></i>
+                        <span class="text-xs font-semibold uppercase tracking-wider text-slate-400">
+                            <span class="lang-ru">Опыт 360°</span><span class="lang-en hidden">360° Perspective</span>
+                        </span>
+                        <i class="ph ph-users-three text-2xl text-brand-600 dark:text-brand-400 bg-brand-50 dark:bg-brand-900/40 p-2 rounded-lg"></i>
                     </div>
-                    <div class="text-3xl font-bold text-slate-900">25+ человек</div>
-                    <p class="text-sm text-slate-600 mt-1">Кросс-функциональные команды (Cloud, Интегратор, Бизнес, Госсектор)</p>
+                    <div class="text-3xl font-bold text-slate-900 dark:text-white">
+                        <span class="lang-ru">25+ человек</span><span class="lang-en hidden">25+ Engineers</span>
+                    </div>
+                    <p class="text-sm text-slate-600 dark:text-slate-400 mt-1">
+                        <span class="lang-ru">Кросс-функциональные команды (Cloud, Интегратор, Бизнес, Госсектор)</span>
+                        <span class="lang-en hidden">Cross-functional teams across Cloud, Integrator, Enterprise &amp; GovTech</span>
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Секция Флагманские кейсы -->
-    <section id="cases" class="py-24 bg-slate-50 border-t border-slate-200">
+    <section id="cases" class="py-24 bg-slate-50 dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800 transition-colors duration-300">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="reveal">
                 <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
                     <div>
-                        <span class="text-brand-600 font-semibold text-sm uppercase tracking-wider">Избранные проекты</span>
-                        <h2 class="text-3xl md:text-4xl font-bold text-slate-900 mt-1">Флагманские <span class="text-brand-600">кейсы</span></h2>
+                        <span class="text-brand-600 dark:text-brand-400 font-semibold text-sm uppercase tracking-wider">
+                            <span class="lang-ru">Избранные проекты</span><span class="lang-en hidden">Selected Projects</span>
+                        </span>
+                        <h2 class="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mt-1">
+                            <span class="lang-ru">Флагманские <span class="text-brand-600 dark:text-brand-400">кейсы</span></span>
+                            <span class="lang-en hidden">Flagship <span class="text-brand-600 dark:text-brand-400">Case Studies</span></span>
+                        </h2>
                     </div>
-                    <span class="text-slate-500 font-medium text-base md:text-lg">Задача &rarr; Решение &rarr; Бизнес-результат</span>
+                    <span class="text-slate-500 dark:text-slate-400 font-medium text-base md:text-lg">
+                        <span class="lang-ru">Задача &rarr; Решение &rarr; Бизнес-результат</span>
+                        <span class="lang-en hidden">Challenge &rarr; Solution &rarr; Business Impact</span>
+                    </span>
                 </div>
 
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
                     <!-- Кейс 1 -->
-                    <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md hover:border-brand-300 transition-all flex flex-col justify-between">
+                    <div class="bg-white dark:bg-slate-900 p-8 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md hover:border-brand-300 dark:hover:border-brand-500 transition-all flex flex-col justify-between">
                         <div>
                             <div class="flex items-center justify-between mb-6">
-                                <span class="px-3 py-1 bg-brand-50 text-brand-600 rounded-full text-xs font-bold uppercase tracking-wider">Cloud &amp; AI Migration</span>
-                                <span class="text-slate-400 text-sm font-medium">&gt; 1 млрд ₽</span>
+                                <span class="px-3 py-1 bg-brand-50 dark:bg-brand-900/40 text-brand-600 dark:text-brand-400 rounded-full text-xs font-bold uppercase tracking-wider">Cloud &amp; AI Migration</span>
+                                <span class="text-slate-400 text-sm font-medium">
+                                    <span class="lang-ru">&gt; 1 млрд ₽</span><span class="lang-en hidden">&gt; 1B RUB</span>
+                                </span>
                             </div>
-                            <h3 class="text-xl font-bold text-slate-900 mb-4">Миграция критических систем в частные и гибридные облака</h3>
+                            <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-4">
+                                <span class="lang-ru">Миграция критических систем в частные и гибридные облака</span>
+                                <span class="lang-en hidden">Mission-Critical Systems Migration to Private &amp; Hybrid Clouds</span>
+                            </h3>
                             
-                            <div class="space-y-4 text-sm text-slate-600 mb-6">
+                            <div class="space-y-4 text-sm text-slate-600 dark:text-slate-300 mb-6">
                                 <div>
-                                    <span class="font-semibold text-slate-900 block mb-0.5">Задача:</span>
-                                    Перенос высоконагруженной ИТ-инфраструктуры и критически важных систем заказчиков госсектора и экосистемы Сбера в облачные контуры (ЗОКИИ, IaaS, PaaS, сервисы AI/ML).
+                                    <span class="font-semibold text-slate-900 dark:text-white block mb-0.5">
+                                        <span class="lang-ru">Задача:</span><span class="lang-en hidden">Challenge:</span>
+                                    </span>
+                                    <span class="lang-ru">Перенос высоконагруженной ИТ-инфраструктуры и критически важных систем заказчиков госсектора и экосистемы Сбера в облачные контуры (ЗОКИИ, IaaS, PaaS, сервисы AI/ML).</span>
+                                    <span class="lang-en hidden">Migrate high-load IT infrastructure and mission-critical systems for public sector and Sber ecosystem clients into secure cloud environments (Critical Infrastructure, IaaS, PaaS, AI/ML).</span>
                                 </div>
                                 <div>
-                                    <span class="font-semibold text-slate-900 block mb-0.5">Решение:</span>
-                                    Проведен предпроектный аудит ландшафта, разработаны ТЗ и дорожные карты миграции (Migration Roadmap). Сформированы и скоординированы распределенные команды (до 25+ инженеров) и внешние подрядчики.
+                                    <span class="font-semibold text-slate-900 dark:text-white block mb-0.5">
+                                        <span class="lang-ru">Решение:</span><span class="lang-en hidden">Solution:</span>
+                                    </span>
+                                    <span class="lang-ru">Проведен предпроектный аудит ландшафта, разработаны ТЗ и дорожные карты миграции (Migration Roadmap). Сформированы и скоординированы распределенные команды (до 25+ инженеров) и внешние подрядчики.</span>
+                                    <span class="lang-en hidden">Conducted pre-project IT landscape audits, developed technical specifications and Migration Roadmaps, and orchestrated distributed teams (25+ engineers) alongside external vendors.</span>
                                 </div>
                             </div>
                         </div>
-                        <div class="pt-4 border-t border-slate-100 bg-slate-50/70 -mx-8 -mb-8 p-6 rounded-b-2xl">
-                            <span class="text-xs font-bold uppercase tracking-wider text-brand-600 block mb-1">Результат</span>
-                            <p class="text-sm font-medium text-slate-800">Успешно реализованы и сданы 4 крупных проекта миграции со 100% соблюдением директивных сроков, бюджета и качества.</p>
+                        <div class="pt-4 border-t border-slate-100 dark:border-slate-800 bg-slate-50/70 dark:bg-slate-800/50 -mx-8 -mb-8 p-6 rounded-b-2xl">
+                            <span class="text-xs font-bold uppercase tracking-wider text-brand-600 dark:text-brand-400 block mb-1">
+                                <span class="lang-ru">Результат</span><span class="lang-en hidden">Impact</span>
+                            </span>
+                            <p class="text-sm font-medium text-slate-800 dark:text-slate-200">
+                                <span class="lang-ru">Успешно реализованы и сданы 4 крупных проекта миграции со 100% соблюдением директивных сроков, бюджета и качества.</span>
+                                <span class="lang-en hidden">Successfully delivered 4 major cloud migration projects on time, within budget, and in full compliance with enterprise quality standards.</span>
+                            </p>
                         </div>
                     </div>
 
                     <!-- Кейс 2 -->
-                    <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md hover:border-brand-300 transition-all flex flex-col justify-between">
+                    <div class="bg-white dark:bg-slate-900 p-8 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md hover:border-brand-300 dark:hover:border-brand-500 transition-all flex flex-col justify-between">
                         <div>
                             <div class="flex items-center justify-between mb-6">
-                                <span class="px-3 py-1 bg-brand-50 text-brand-600 rounded-full text-xs font-bold uppercase tracking-wider">Enterprise &amp; Программа</span>
-                                <span class="text-slate-400 text-sm font-medium">Международный контур</span>
+                                <span class="px-3 py-1 bg-brand-50 dark:bg-brand-900/40 text-brand-600 dark:text-brand-400 rounded-full text-xs font-bold uppercase tracking-wider">
+                                    <span class="lang-ru">Enterprise &amp; Программа</span><span class="lang-en hidden">Enterprise Program</span>
+                                </span>
+                                <span class="text-slate-400 text-sm font-medium">
+                                    <span class="lang-ru">Международный контур</span><span class="lang-en hidden">International Scope</span>
+                                </span>
                             </div>
-                            <h3 class="text-xl font-bold text-slate-900 mb-4">Модернизация инфраструктуры и запуск зарубежных производств</h3>
+                            <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-4">
+                                <span class="lang-ru">Модернизация инфраструктуры и запуск зарубежных производств</span>
+                                <span class="lang-en hidden">Infrastructure Modernization &amp; International Plant Rollouts</span>
+                            </h3>
                             
-                            <div class="space-y-4 text-sm text-slate-600 mb-6">
+                            <div class="space-y-4 text-sm text-slate-600 dark:text-slate-300 mb-6">
                                 <div>
-                                    <span class="font-semibold text-slate-900 block mb-0.5">Задача:</span>
-                                    Комплексное обновление корпоративной ИТ-инфраструктуры (ВКС, АТС, сервисы, импортозамещение) предприятий Группы НЛМК и ИТ-обеспечение запуска новых заводов за рубежом.
+                                    <span class="font-semibold text-slate-900 dark:text-white block mb-0.5">
+                                        <span class="lang-ru">Задача:</span><span class="lang-en hidden">Challenge:</span>
+                                    </span>
+                                    <span class="lang-ru">Комплексное обновление корпоративной ИТ-инфраструктуры (ВКС, АТС, сервисы, импортозамещение) предприятий Группы НЛМК и ИТ-обеспечение запуска новых заводов за рубежом.</span>
+                                    <span class="lang-en hidden">Modernize corporate IT infrastructure (video conferencing, PBX, enterprise services, import substitution) across NLMK Group and deploy IT foundations for new overseas manufacturing plants.</span>
                                 </div>
                                 <div>
-                                    <span class="font-semibold text-slate-900 block mb-0.5">Решение:</span>
-                                    Выстроено управление программой проектов от защиты инвестиций перед VP IT до пусконаладки на местах. Спроектирована инфраструктура зарубежных площадок и организована служба поддержки.
+                                    <span class="font-semibold text-slate-900 dark:text-white block mb-0.5">
+                                        <span class="lang-ru">Решение:</span><span class="lang-en hidden">Solution:</span>
+                                    </span>
+                                    <span class="lang-ru">Выстроено управление программой проектов от защиты инвестиций перед VP IT до пусконаладки на местах. Спроектирована инфраструктура зарубежных площадок и организована служба поддержки.</span>
+                                    <span class="lang-en hidden">Managed the full program lifecycle from investment defense before the VP of IT to on-site commissioning, infrastructure design, and operational support setup.</span>
                                 </div>
                             </div>
                         </div>
-                        <div class="pt-4 border-t border-slate-100 bg-slate-50/70 -mx-8 -mb-8 p-6 rounded-b-2xl">
-                            <span class="text-xs font-bold uppercase tracking-wider text-brand-600 block mb-1">Результат</span>
-                            <p class="text-sm font-medium text-slate-800">Бесшовный ввод новых производств и модернизированных корпоративных сервисов в промышленную эксплуатацию в рамках целевого P&amp;L.</p>
+                        <div class="pt-4 border-t border-slate-100 dark:border-slate-800 bg-slate-50/70 dark:bg-slate-800/50 -mx-8 -mb-8 p-6 rounded-b-2xl">
+                            <span class="text-xs font-bold uppercase tracking-wider text-brand-600 dark:text-brand-400 block mb-1">
+                                <span class="lang-ru">Результат</span><span class="lang-en hidden">Impact</span>
+                            </span>
+                            <p class="text-sm font-medium text-slate-800 dark:text-slate-200">
+                                <span class="lang-ru">Бесшовный ввод новых производств и модернизированных корпоративных сервисов в промышленную эксплуатацию в рамках целевого P&amp;L.</span>
+                                <span class="lang-en hidden">Seamless launch of international production facilities and modernized corporate services into production within target P&amp;L.</span>
+                            </p>
                         </div>
                     </div>
 
                     <!-- Кейс 3 -->
-                    <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md hover:border-brand-300 transition-all flex flex-col justify-between">
+                    <div class="bg-white dark:bg-slate-900 p-8 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-md hover:border-brand-300 dark:hover:border-brand-500 transition-all flex flex-col justify-between">
                         <div>
                             <div class="flex items-center justify-between mb-6">
-                                <span class="px-3 py-1 bg-brand-50 text-brand-600 rounded-full text-xs font-bold uppercase tracking-wider">Промышленный Инжиниринг</span>
-                                <span class="text-slate-400 text-sm font-medium">До 500 млн ₽</span>
+                                <span class="px-3 py-1 bg-brand-50 dark:bg-brand-900/40 text-brand-600 dark:text-brand-400 rounded-full text-xs font-bold uppercase tracking-wider">
+                                    <span class="lang-ru">Промышленный Инжиниринг</span><span class="lang-en hidden">Industrial Engineering</span>
+                                </span>
+                                <span class="text-slate-400 text-sm font-medium">
+                                    <span class="lang-ru">До 500 млн ₽</span><span class="lang-en hidden">Up to 500M RUB</span>
+                                </span>
                             </div>
-                            <h3 class="text-xl font-bold text-slate-900 mb-4">Инженерная и ИТ-инфраструктура промышленных гигантов и КТК</h3>
+                            <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-4">
+                                <span class="lang-ru">Инженерная и ИТ-инфраструктура промышленных гигантов и КТК</span>
+                                <span class="lang-en hidden">Turnkey Engineering &amp; IT Infrastructure for Industrial Giants &amp; CPC</span>
+                            </h3>
                             
-                            <div class="space-y-4 text-sm text-slate-600 mb-6">
+                            <div class="space-y-4 text-sm text-slate-600 dark:text-slate-300 mb-6">
                                 <div>
-                                    <span class="font-semibold text-slate-900 block mb-0.5">Задача:</span>
-                                    Создание «под ключ» инженерной и ИТ-инфраструктуры крупных промышленных объектов и модернизация систем Каспийского Трубопроводного Консорциума (КТК).
+                                    <span class="font-semibold text-slate-900 dark:text-white block mb-0.5">
+                                        <span class="lang-ru">Задача:</span><span class="lang-en hidden">Challenge:</span>
+                                    </span>
+                                    <span class="lang-ru">Создание «под ключ» инженерной и ИТ-инфраструктуры крупных промышленных объектов и модернизация систем Каспийского Трубопроводного Консорциума (КТК).</span>
+                                    <span class="lang-en hidden">Deliver turnkey engineering and IT infrastructure for major industrial facilities and the Caspian Pipeline Consortium (CPC) expansion project.</span>
                                 </div>
                                 <div>
-                                    <span class="font-semibold text-slate-900 block mb-0.5">Решение:</span>
-                                    Управление end-to-end циклом по PMI: от разработки ПД/РД и BIM-моделирования до поставок оборудования, руководства СМР, ПНР и проведения приемочных испытаний на опасных производственных объектах.
+                                    <span class="font-semibold text-slate-900 dark:text-white block mb-0.5">
+                                        <span class="lang-ru">Решение:</span><span class="lang-en hidden">Solution:</span>
+                                    </span>
+                                    <span class="lang-ru">Управление end-to-end циклом по PMI: от разработки ПД/РД и BIM-моделирования до поставок оборудования, руководства СМР, ПНР и проведения приемочных испытаний на опасных производственных объектах.</span>
+                                    <span class="lang-en hidden">Led end-to-end PMI execution: from design documentation and BIM modeling to equipment supply, construction &amp; installation supervision, commissioning, and acceptance testing at hazardous industrial sites.</span>
                                 </div>
                             </div>
                         </div>
-                        <div class="pt-4 border-t border-slate-100 bg-slate-50/70 -mx-8 -mb-8 p-6 rounded-b-2xl">
-                            <span class="text-xs font-bold uppercase tracking-wider text-brand-600 block mb-1">Результат</span>
-                            <p class="text-sm font-medium text-slate-800">Сдача серии капиталоемких инфраструктурных объектов в эксплуатацию с соблюдением жестких международных и отраслевых стандартов безопасности.</p>
+                        <div class="pt-4 border-t border-slate-100 dark:border-slate-800 bg-slate-50/70 dark:bg-slate-800/50 -mx-8 -mb-8 p-6 rounded-b-2xl">
+                            <span class="text-xs font-bold uppercase tracking-wider text-brand-600 dark:text-brand-400 block mb-1">
+                                <span class="lang-ru">Результат</span><span class="lang-en hidden">Impact</span>
+                            </span>
+                            <p class="text-sm font-medium text-slate-800 dark:text-slate-200">
+                                <span class="lang-ru">Сдача серии капиталоемких инфраструктурных объектов в эксплуатацию с соблюдением жестких международных и отраслевых стандартов безопасности.</span>
+                                <span class="lang-en hidden">Commissioned multiple capital-intensive infrastructure facilities in strict compliance with international and industrial safety regulations.</span>
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -244,117 +358,202 @@
     </section>
 
     <!-- Секция Опыт работы -->
-    <section id="experience" class="py-24 bg-white border-t border-slate-200">
+    <section id="experience" class="py-24 bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 transition-colors duration-300">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="reveal">
                 <div class="flex items-center justify-between mb-12">
-                    <h2 class="text-3xl md:text-4xl font-bold text-slate-900">Опыт <span class="text-brand-600">работы</span></h2>
-                    <span class="hidden md:inline-block text-slate-500 font-medium text-lg">19 лет в ИТ • 10+ лет в управлении</span>
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white">
+                        <span class="lang-ru">Опыт <span class="text-brand-600 dark:text-brand-400">работы</span></span>
+                        <span class="lang-en hidden">Work <span class="text-brand-600 dark:text-brand-400">Experience</span></span>
+                    </h2>
+                    <span class="hidden md:inline-block text-slate-500 dark:text-slate-400 font-medium text-lg">
+                        <span class="lang-ru">19 лет в ИТ • 10+ лет в управлении</span>
+                        <span class="lang-en hidden">19 Years in IT • 10+ Years in Leadership</span>
+                    </span>
                 </div>
                 
                 <div class="space-y-8">
                     <!-- Место работы 1: Cloud.ru -->
-                    <div class="bg-slate-50 p-8 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow group relative overflow-hidden">
+                    <div class="bg-slate-50 dark:bg-slate-800/60 p-8 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition-shadow group relative overflow-hidden">
                         <div class="absolute top-0 left-0 w-1 h-full bg-brand-500 transform origin-bottom scale-y-0 group-hover:scale-y-100 transition-transform duration-300"></div>
                         <div class="flex flex-col md:flex-row md:items-center justify-between mb-4 gap-4">
                             <div>
-                                <h3 class="text-2xl font-bold text-slate-900">Руководитель проектов (Cloud Migration)</h3>
-                                <p class="text-lg text-brand-600 font-medium mt-1">Cloud.ru</p>
+                                <h3 class="text-2xl font-bold text-slate-900 dark:text-white">
+                                    <span class="lang-ru">Руководитель проектов (Cloud Migration)</span>
+                                    <span class="lang-en hidden">Project Manager (Cloud Migration)</span>
+                                </h3>
+                                <p class="text-lg text-brand-600 dark:text-brand-400 font-medium mt-1">Cloud.ru</p>
                             </div>
-                            <div class="shrink-0 text-slate-500 font-medium bg-white border border-slate-200 px-4 py-2 rounded-lg">
-                                Февраль 2024 — Настоящее время
+                            <div class="shrink-0 text-slate-500 dark:text-slate-300 font-medium bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 px-4 py-2 rounded-lg">
+                                <span class="lang-ru">Февраль 2024 — Настоящее время</span>
+                                <span class="lang-en hidden">Feb 2024 — Present</span>
                             </div>
                         </div>
-                        <div class="text-slate-600 space-y-3 mb-6">
+                        <div class="text-slate-600 dark:text-slate-300 space-y-3 mb-6">
                             <ul class="list-disc list-inside space-y-2 marker:text-brand-500">
-                                <li>Полный жизненный цикл сложных проектов миграции ИТ-инфраструктуры и критически важных систем компаний госсектора и экосистемы Сбербанка в частные и гибридные облака (ЗОКИИ, IaaS, PaaS, сервисы AI/ML).</li>
-                                <li>Предпроектное обследование и аудит ИТ-ландшафта заказчика, формирование ТЗ, разработка дорожной карты миграции (Migration Roadmap) и управление бюджетами свыше 1 млрд руб.</li>
-                                <li>Подбор и координация распределенных инженерных команд (до 25+ человек), управление процедурами закупок и внешними подрядчиками.</li>
-                                <li>Прямое взаимодействие с ключевыми заказчиками, управление ожиданиями, рисками и изменениями.</li>
-                                <li>Результат: успешная реализация 4 крупных проектов облачной миграции в строгом соответствии со сроками, бюджетом и требованиями к качеству.</li>
+                                <li>
+                                    <span class="lang-ru">Полный жизненный цикл сложных проектов миграции ИТ-инфраструктуры и критически важных систем компаний госсектора и экосистемы Сбербанка в частные и гибридные облака (ЗОКИИ, IaaS, PaaS, сервисы AI/ML).</span>
+                                    <span class="lang-en hidden">Full lifecycle management of complex IT infrastructure and mission-critical system migrations for public sector and Sberbank ecosystem clients into private and hybrid clouds (Critical Infrastructure, IaaS, PaaS, AI/ML services).</span>
+                                </li>
+                                <li>
+                                    <span class="lang-ru">Предпроектное обследование и аудит ИТ-ландшафта заказчика, формирование ТЗ, разработка дорожной карты миграции (Migration Roadmap) и управление бюджетами свыше 1 млрд руб.</span>
+                                    <span class="lang-en hidden">Pre-project assessment and IT landscape audit, technical specification authoring, Migration Roadmap development, and management of project budgets exceeding 1B RUB.</span>
+                                </li>
+                                <li>
+                                    <span class="lang-ru">Подбор и координация распределенных инженерных команд (до 25+ человек), управление процедурами закупок и внешними подрядчиками.</span>
+                                    <span class="lang-en hidden">Recruitment and coordination of distributed engineering teams (up to 25+ specialists), procurement management, and external vendor oversight.</span>
+                                </li>
+                                <li>
+                                    <span class="lang-ru">Прямое взаимодействие с ключевыми заказчиками, управление ожиданиями, рисками и изменениями.</span>
+                                    <span class="lang-en hidden">Direct C-level and key stakeholder engagement, expectation management, risk mitigation, and change control.</span>
+                                </li>
+                                <li>
+                                    <span class="lang-ru">Результат: успешная реализация 4 крупных проектов облачной миграции в строгом соответствии со сроками, бюджетом и требованиями к качеству.</span>
+                                    <span class="lang-en hidden">Result: Successfully delivered 4 large-scale cloud migration projects strictly on schedule, within budget, and meeting all quality targets.</span>
+                                </li>
                             </ul>
                         </div>
                     </div>
 
                     <!-- Место работы 2: Цифровые технологии и платформы -->
-                    <div class="bg-slate-50 p-8 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow group relative overflow-hidden">
+                    <div class="bg-slate-50 dark:bg-slate-800/60 p-8 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition-shadow group relative overflow-hidden">
                         <div class="absolute top-0 left-0 w-1 h-full bg-brand-500 transform origin-bottom scale-y-0 group-hover:scale-y-100 transition-transform duration-300"></div>
                         <div class="flex flex-col md:flex-row md:items-center justify-between mb-4 gap-4">
                             <div>
-                                <h3 class="text-2xl font-bold text-slate-900">Руководитель проектов по созданию и модернизации ИТ-инфраструктуры</h3>
-                                <p class="text-lg text-brand-600 font-medium mt-1">Цифровые технологии и платформы</p>
+                                <h3 class="text-2xl font-bold text-slate-900 dark:text-white">
+                                    <span class="lang-ru">Руководитель проектов по созданию и модернизации ИТ-инфраструктуры</span>
+                                    <span class="lang-en hidden">IT Infrastructure Project Manager</span>
+                                </h3>
+                                <p class="text-lg text-brand-600 dark:text-brand-400 font-medium mt-1">
+                                    <span class="lang-ru">Цифровые технологии и платформы</span>
+                                    <span class="lang-en hidden">Digital Technologies &amp; Platforms</span>
+                                </p>
                             </div>
-                            <div class="shrink-0 text-slate-500 font-medium bg-white border border-slate-200 px-4 py-2 rounded-lg">
-                                Июнь 2023 — Декабрь 2023
+                            <div class="shrink-0 text-slate-500 dark:text-slate-300 font-medium bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 px-4 py-2 rounded-lg">
+                                <span class="lang-ru">Июнь 2023 — Декабрь 2023</span>
+                                <span class="lang-en hidden">Jun 2023 — Dec 2023</span>
                             </div>
                         </div>
-                        <div class="text-slate-600 space-y-3 mb-6">
+                        <div class="text-slate-600 dark:text-slate-300 space-y-3 mb-6">
                             <ul class="list-disc list-inside space-y-2 marker:text-brand-500">
-                                <li>Руководство комплексными проектами полного цикла по созданию и модернизации ЦОД, сетевых и серверных комплексов.</li>
-                                <li>Внедрение решений по информационной безопасности, построение отказоустойчивых систем резервного копирования и реализация программ импортозамещения.</li>
-                                <li>Полный цикл управления: предпроектное обследование, формирование ТЗ, защита перед стейкхолдерами, управление подрядчиками и сдача объектов в эксплуатацию.</li>
+                                <li>
+                                    <span class="lang-ru">Руководство комплексными проектами полного цикла по созданию и модернизации ЦОД, сетевых и серверных комплексов.</span>
+                                    <span class="lang-en hidden">Led end-to-end projects for building and modernizing Data Centers, enterprise networks, and server complexes.</span>
+                                </li>
+                                <li>
+                                    <span class="lang-ru">Внедрение решений по информационной безопасности, построение отказоустойчивых систем резервного копирования и реализация программ импортозамещения.</span>
+                                    <span class="lang-en hidden">Implemented cybersecurity solutions, fault-tolerant backup and disaster recovery systems, and import substitution programs.</span>
+                                </li>
+                                <li>
+                                    <span class="lang-ru">Полный цикл управления: предпроектное обследование, формирование ТЗ, защита перед стейкхолдерами, управление подрядчиками и сдача объектов в эксплуатацию.</span>
+                                    <span class="lang-en hidden">Managed the complete project lifecycle: pre-project surveys, RFP/specification authoring, stakeholder defense, vendor management, and commissioning.</span>
+                                </li>
                             </ul>
                         </div>
                     </div>
 
                     <!-- Место работы 3: НЛМК-ИТ -->
-                    <div class="bg-slate-50 p-8 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow group relative overflow-hidden">
+                    <div class="bg-slate-50 dark:bg-slate-800/60 p-8 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition-shadow group relative overflow-hidden">
                         <div class="absolute top-0 left-0 w-1 h-full bg-brand-500 transform origin-bottom scale-y-0 group-hover:scale-y-100 transition-transform duration-300"></div>
                         <div class="flex flex-col md:flex-row md:items-center justify-between mb-4 gap-4">
                             <div>
-                                <h3 class="text-2xl font-bold text-slate-900">Руководитель проектов и программ (ИТ-инфраструктура)</h3>
-                                <p class="text-lg text-brand-600 font-medium mt-1">НЛМК-ИТ (Группа НЛМК)</p>
+                                <h3 class="text-2xl font-bold text-slate-900 dark:text-white">
+                                    <span class="lang-ru">Руководитель проектов и программ (ИТ-инфраструктура)</span>
+                                    <span class="lang-en hidden">IT Infrastructure Project &amp; Program Manager</span>
+                                </h3>
+                                <p class="text-lg text-brand-600 dark:text-brand-400 font-medium mt-1">
+                                    <span class="lang-ru">НЛМК-ИТ (Группа НЛМК)</span>
+                                    <span class="lang-en hidden">NLMK-IT (NLMK Group)</span>
+                                </p>
                             </div>
-                            <div class="shrink-0 text-slate-500 font-medium bg-white border border-slate-200 px-4 py-2 rounded-lg">
-                                Май 2021 — Июнь 2023
+                            <div class="shrink-0 text-slate-500 dark:text-slate-300 font-medium bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 px-4 py-2 rounded-lg">
+                                <span class="lang-ru">Май 2021 — Июнь 2023</span>
+                                <span class="lang-en hidden">May 2021 — Jun 2023</span>
                             </div>
                         </div>
-                        <div class="text-slate-600 space-y-3 mb-6">
+                        <div class="text-slate-600 dark:text-slate-300 space-y-3 mb-6">
                             <ul class="list-disc list-inside space-y-2 marker:text-brand-500">
-                                <li>Управление комплексными программами по созданию и модернизации ИТ-инфраструктуры предприятий Группы (ВКС, АТС, сервисы, импортозамещение) от защиты перед вице-президентом по ИТ до передачи в промышленную эксплуатацию.</li>
-                                <li>Поддержка запуска новых производств за рубежом: проектирование ИТ-инфраструктуры, координация пусконаладки и организация технической поддержки.</li>
-                                <li>Управление командами, бюджетами, сроками, рисками и отчетность на уровне группы компаний.</li>
+                                <li>
+                                    <span class="lang-ru">Управление комплексными программами по созданию и модернизации ИТ-инфраструктуры предприятий Группы (ВКС, АТС, сервисы, импортозамещение) от защиты перед вице-президентом по ИТ до передачи в промышленную эксплуатацию.</span>
+                                    <span class="lang-en hidden">Directed comprehensive IT infrastructure modernization programs across NLMK Group (video conferencing, telephony, corporate services, import substitution) from business case defense before the VP of IT to production handover.</span>
+                                </li>
+                                <li>
+                                    <span class="lang-ru">Поддержка запуска новых производств за рубежом: проектирование ИТ-инфраструктуры, координация пусконаладки и организация технической поддержки.</span>
+                                    <span class="lang-en hidden">Supported the launch of new overseas manufacturing plants: IT infrastructure design, commissioning coordination, and operational support setup.</span>
+                                </li>
+                                <li>
+                                    <span class="lang-ru">Управление командами, бюджетами, сроками, рисками и отчетность на уровне группы компаний.</span>
+                                    <span class="lang-en hidden">Managed cross-functional teams, budgets, schedules, risks, and executive reporting at the Group level.</span>
+                                </li>
                             </ul>
                         </div>
                     </div>
 
                     <!-- Место работы 4: ДИТ Москвы -->
-                    <div class="bg-slate-50 p-8 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow group relative overflow-hidden">
+                    <div class="bg-slate-50 dark:bg-slate-800/60 p-8 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition-shadow group relative overflow-hidden">
                         <div class="absolute top-0 left-0 w-1 h-full bg-brand-500 transform origin-bottom scale-y-0 group-hover:scale-y-100 transition-transform duration-300"></div>
                         <div class="flex flex-col md:flex-row md:items-center justify-between mb-4 gap-4">
                             <div>
-                                <h3 class="text-2xl font-bold text-slate-900">Руководитель проектов (Госзаказчик)</h3>
-                                <p class="text-lg text-brand-600 font-medium mt-1">Департамент информационных технологий г. Москвы (ГКУ «Инфогород»)</p>
+                                <h3 class="text-2xl font-bold text-slate-900 dark:text-white">
+                                    <span class="lang-ru">Руководитель проектов (Госзаказчик)</span>
+                                    <span class="lang-en hidden">Project Manager (GovTech Client Side)</span>
+                                </h3>
+                                <p class="text-lg text-brand-600 dark:text-brand-400 font-medium mt-1">
+                                    <span class="lang-ru">Департамент информационных технологий г. Москвы (ГКУ «Инфогород»)</span>
+                                    <span class="lang-en hidden">Department of Information Technology of Moscow (Infogorod)</span>
+                                </p>
                             </div>
-                            <div class="shrink-0 text-slate-500 font-medium bg-white border border-slate-200 px-4 py-2 rounded-lg">
-                                Апрель 2020 — Май 2021
+                            <div class="shrink-0 text-slate-500 dark:text-slate-300 font-medium bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 px-4 py-2 rounded-lg">
+                                <span class="lang-ru">Апрель 2020 — Май 2021</span>
+                                <span class="lang-en hidden">Apr 2020 — May 2021</span>
                             </div>
                         </div>
-                        <div class="text-slate-600 space-y-3 mb-6">
+                        <div class="text-slate-600 dark:text-slate-300 space-y-3 mb-6">
                             <ul class="list-disc list-inside space-y-2 marker:text-brand-500">
-                                <li>Управление комплексными проектами развития информационных систем и ИТ-инфраструктуры со стороны государственного заказчика (органы исполнительной власти Москвы).</li>
-                                <li>Выявление потребностей, экспертиза технических заданий, подготовка и согласование конкурсной документации, организация закупочных процедур.</li>
+                                <li>
+                                    <span class="lang-ru">Управление комплексными проектами развития информационных систем и ИТ-инфраструктуры со стороны государственного заказчика (органы исполнительной власти Москвы).</span>
+                                    <span class="lang-en hidden">Managed complex information systems and IT infrastructure development projects representing the government client (Moscow executive authorities).</span>
+                                </li>
+                                <li>
+                                    <span class="lang-ru">Выявление потребностей, экспертиза технических заданий, подготовка и согласование конкурсной документации, организация закупочных процедур.</span>
+                                    <span class="lang-en hidden">Requirements gathering, technical specification review, tender documentation preparation, and public procurement management.</span>
+                                </li>
                             </ul>
                         </div>
                     </div>
 
                     <!-- Место работы 5: Step Logic и Вист-Сервис -->
-                    <div class="bg-slate-50 p-8 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow group relative overflow-hidden">
+                    <div class="bg-slate-50 dark:bg-slate-800/60 p-8 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition-shadow group relative overflow-hidden">
                         <div class="absolute top-0 left-0 w-1 h-full bg-slate-400 transform origin-bottom scale-y-0 group-hover:scale-y-100 transition-transform duration-300"></div>
                         <div class="flex flex-col md:flex-row md:items-center justify-between mb-4 gap-4">
                             <div>
-                                <h3 class="text-2xl font-bold text-slate-900">Старший руководитель проектов / Руководитель проектов / Ведущий инженер</h3>
-                                <p class="text-lg text-slate-600 font-medium mt-1">Step Logic (2010–2020) • Компания «Вист-Сервис» (2007–2010)</p>
+                                <h3 class="text-2xl font-bold text-slate-900 dark:text-white">
+                                    <span class="lang-ru">Старший руководитель проектов / Руководитель проектов / Ведущий инженер</span>
+                                    <span class="lang-en hidden">Senior Project Manager / Project Manager / Lead Design Engineer</span>
+                                </h3>
+                                <p class="text-lg text-slate-600 dark:text-slate-400 font-medium mt-1">
+                                    <span class="lang-ru">Step Logic (2010–2020) • Компания «Вист-Сервис» (2007–2010)</span>
+                                    <span class="lang-en hidden">Step Logic (2010–2020) • Vist-Service (2007–2010)</span>
+                                </p>
                             </div>
-                            <div class="shrink-0 text-slate-500 font-medium bg-white border border-slate-200 px-4 py-2 rounded-lg">
+                            <div class="shrink-0 text-slate-500 dark:text-slate-300 font-medium bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 px-4 py-2 rounded-lg">
                                 2007 — 2020
                             </div>
                         </div>
-                        <div class="text-slate-600 space-y-3 mb-6">
+                        <div class="text-slate-600 dark:text-slate-300 space-y-3 mb-6">
                             <ul class="list-disc list-inside space-y-2 marker:text-slate-400">
-                                <li><strong>Step Logic (2017–2020, Старший РП / РП):</strong> Руководство end-to-end проектами создания инженерной и ИТ-инфраструктуры промышленных объектов по методологии PMI (бюджеты до 500 млн руб., от проектирования и поставки до СМР, ПНР и ввода в эксплуатацию).</li>
-                                <li><strong>Step Logic (2011–2017, Проект расширения КТК):</strong> Международный проект модернизации трубопроводной системы Каспийского Трубопроводного Консорциума — полный цикл от разработки ПД/РД и BIM-моделирования до руководства монтажом и ПНР на объекте.</li>
-                                <li><strong>Step Logic & «Вист-Сервис» (2007–2011):</strong> Начальник проектного отдела, инженер-проектировщик систем СКС ЦОД, СЭ, ОПС, СКУД, ВОЛС, CCTV, DCIM; подготовка ТКП и участие в тендерах.</li>
+                                <li>
+                                    <span class="lang-ru"><strong>Step Logic (2017–2020, Старший РП / РП):</strong> Руководство end-to-end проектами создания инженерной и ИТ-инфраструктуры промышленных объектов по методологии PMI (бюджеты до 500 млн руб., от проектирования и поставки до СМР, ПНР и ввода в эксплуатацию).</span>
+                                    <span class="lang-en hidden"><strong>Step Logic (2017–2020, Senior PM / PM):</strong> Led end-to-end engineering and IT infrastructure projects for industrial facilities using PMI standards (budgets up to 500M RUB, from design and supply to construction, commissioning, and handover).</span>
+                                </li>
+                                <li>
+                                    <span class="lang-ru"><strong>Step Logic (2011–2017, Проект расширения КТК):</strong> Международный проект модернизации трубопроводной системы Каспийского Трубопроводного Консорциума — полный цикл от разработки ПД/РД и BIM-моделирования до руководства монтажом и ПНР на объекте.</span>
+                                    <span class="lang-en hidden"><strong>Step Logic (2011–2017, CPC Expansion Project):</strong> International pipeline modernization project for the Caspian Pipeline Consortium — full cycle from design documentation and BIM modeling to on-site installation supervision and commissioning.</span>
+                                </li>
+                                <li>
+                                    <span class="lang-ru"><strong>Step Logic &amp; «Вист-Сервис» (2007–2011):</strong> Начальник проектного отдела, инженер-проектировщик систем СКС ЦОД, СЭ, ОПС, СКУД, ВОЛС, CCTV, DCIM; подготовка ТКП и участие в тендерах.</span>
+                                    <span class="lang-en hidden"><strong>Step Logic &amp; Vist-Service (2007–2011):</strong> Head of Engineering Department / Design Engineer for Data Center SCS, power systems, security, fiber optics, CCTV, and DCIM; commercial proposals and tender management.</span>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -365,47 +564,86 @@
     </section>
 
     <!-- Секция Навыки -->
-    <section id="skills" class="py-24 bg-slate-50 border-t border-slate-200">
+    <section id="skills" class="py-24 bg-slate-50 dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800 transition-colors duration-300">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="reveal">
-                <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center text-slate-900">Ключевые <span class="text-brand-600">компетенции и квалификация</span></h2>
+                <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center text-slate-900 dark:text-white">
+                    <span class="lang-ru">Ключевые <span class="text-brand-600 dark:text-brand-400">компетенции и квалификация</span></span>
+                    <span class="lang-en hidden">Core <span class="text-brand-600 dark:text-brand-400">Competencies &amp; Credentials</span></span>
+                </h2>
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     
-                    <div class="p-6 border border-slate-200 rounded-xl hover:border-brand-300 hover:shadow-md transition-all bg-white">
-                        <i class="ph ph-kanban text-4xl text-brand-600 mb-4"></i>
-                        <h3 class="font-bold text-xl mb-2 text-slate-900">Управление программами (PRIME, PME)</h3>
-                        <p class="text-slate-600 text-sm">PMI PMBOK, Agile, управление портфелями и программами проектов. Полный цикл от устава и ТЗ до ввода в промышленную эксплуатацию.</p>
+                    <div class="p-6 border border-slate-200 dark:border-slate-800 rounded-xl hover:border-brand-300 dark:hover:border-brand-500 hover:shadow-md transition-all bg-white dark:bg-slate-900">
+                        <i class="ph ph-kanban text-4xl text-brand-600 dark:text-brand-400 mb-4"></i>
+                        <h3 class="font-bold text-xl mb-2 text-slate-900 dark:text-white">
+                            <span class="lang-ru">Управление программами (PRIME, PME)</span>
+                            <span class="lang-en hidden">Program Management (PRIME, PME)</span>
+                        </h3>
+                        <p class="text-slate-600 dark:text-slate-400 text-sm">
+                            <span class="lang-ru">PMI PMBOK, Agile, управление портфелями и программами проектов. Полный цикл от устава и ТЗ до ввода в промышленную эксплуатацию.</span>
+                            <span class="lang-en hidden">PMI PMBOK, Agile, portfolio and program governance. Full lifecycle execution from project charter and RFP to production rollout.</span>
+                        </p>
                     </div>
 
-                    <div class="p-6 border border-slate-200 rounded-xl hover:border-brand-300 hover:shadow-md transition-all bg-white">
-                        <i class="ph ph-users-three text-4xl text-brand-600 mb-4"></i>
-                        <h3 class="font-bold text-xl mb-2 text-slate-900">Экспертиза 360° и Стейкхолдеры</h3>
-                        <p class="text-slate-600 text-sm">Опыт на стороне облачного провайдера, системного интегратора, крупного бизнеса и госзаказчика. Защита проектов перед C-level (VP IT) и работа с госструктурами.</p>
+                    <div class="p-6 border border-slate-200 dark:border-slate-800 rounded-xl hover:border-brand-300 dark:hover:border-brand-500 hover:shadow-md transition-all bg-white dark:bg-slate-900">
+                        <i class="ph ph-users-three text-4xl text-brand-600 dark:text-brand-400 mb-4"></i>
+                        <h3 class="font-bold text-xl mb-2 text-slate-900 dark:text-white">
+                            <span class="lang-ru">Экспертиза 360° и Стейкхолдеры</span>
+                            <span class="lang-en hidden">360° Perspective &amp; Stakeholders</span>
+                        </h3>
+                        <p class="text-slate-600 dark:text-slate-400 text-sm">
+                            <span class="lang-ru">Опыт на стороне облачного провайдера, системного интегратора, крупного бизнеса и госзаказчика. Защита проектов перед C-level (VP IT) и работа с госструктурами.</span>
+                            <span class="lang-en hidden">Experience across Cloud Provider, Systems Integrator, Enterprise Client, and GovTech roles. C-level investment defense (VP of IT) and government relations.</span>
+                        </p>
                     </div>
 
-                    <div class="p-6 border border-slate-200 rounded-xl hover:border-brand-300 hover:shadow-md transition-all bg-white">
-                        <i class="ph ph-chart-line-up text-4xl text-brand-600 mb-4"></i>
-                        <h3 class="font-bold text-xl mb-2 text-slate-900">Бюджеты &gt; 1 млрд ₽ и Закупки</h3>
-                        <p class="text-slate-600 text-sm">Долгосрочное бюджетирование, контроль стоимости, управление рисками и изменениями, проведение тендеров, госзакупок и контрактование подрядчиков.</p>
+                    <div class="p-6 border border-slate-200 dark:border-slate-800 rounded-xl hover:border-brand-300 dark:hover:border-brand-500 hover:shadow-md transition-all bg-white dark:bg-slate-900">
+                        <i class="ph ph-chart-line-up text-4xl text-brand-600 dark:text-brand-400 mb-4"></i>
+                        <h3 class="font-bold text-xl mb-2 text-slate-900 dark:text-white">
+                            <span class="lang-ru">Бюджеты &gt; 1 млрд ₽ и Закупки</span>
+                            <span class="lang-en hidden">Budgets &gt; 1B RUB &amp; Procurement</span>
+                        </h3>
+                        <p class="text-slate-600 dark:text-slate-400 text-sm">
+                            <span class="lang-ru">Долгосрочное бюджетирование, контроль стоимости, управление рисками и изменениями, проведение тендеров, госзакупок и контрактование подрядчиков.</span>
+                            <span class="lang-en hidden">Long-term budgeting, cost control, risk and change management, enterprise tenders, public procurement, and vendor contracting.</span>
+                        </p>
                     </div>
 
-                    <div class="p-6 border border-slate-200 rounded-xl hover:border-brand-300 hover:shadow-md transition-all bg-white">
-                        <i class="ph ph-shield-warning text-4xl text-brand-600 mb-4"></i>
-                        <h3 class="font-bold text-xl mb-2 text-slate-900">Cloud, ЦОД и Инфраструктура</h3>
-                        <p class="text-slate-600 text-sm">Миграция в частные и гибридные облака (IaaS, PaaS, ЗОКИИ), строительство ЦОД, СРК, сети передачи данных, ИБ и импортозамещение.</p>
+                    <div class="p-6 border border-slate-200 dark:border-slate-800 rounded-xl hover:border-brand-300 dark:hover:border-brand-500 hover:shadow-md transition-all bg-white dark:bg-slate-900">
+                        <i class="ph ph-shield-warning text-4xl text-brand-600 dark:text-brand-400 mb-4"></i>
+                        <h3 class="font-bold text-xl mb-2 text-slate-900 dark:text-white">
+                            <span class="lang-ru">Cloud, ЦОД и Инфраструктура</span>
+                            <span class="lang-en hidden">Cloud, Data Centers &amp; Infrastructure</span>
+                        </h3>
+                        <p class="text-slate-600 dark:text-slate-400 text-sm">
+                            <span class="lang-ru">Миграция в частные и гибридные облака (IaaS, PaaS, ЗОКИИ), строительство ЦОД, СРК, сети передачи данных, ИБ и импортозамещение.</span>
+                            <span class="lang-en hidden">Private and hybrid cloud migration (IaaS, PaaS, Critical Infrastructure), Data Center design &amp; build, disaster recovery, networking, cybersecurity, and import substitution.</span>
+                        </p>
                     </div>
 
-                    <div class="p-6 border border-slate-200 rounded-xl hover:border-brand-300 hover:shadow-md transition-all bg-white">
-                        <i class="ph ph-brain text-4xl text-brand-600 mb-4"></i>
-                        <h3 class="font-bold text-xl mb-2 text-slate-900">Инструменты &amp; AI</h3>
-                        <p class="text-slate-600 text-sm">MS Project, Atlassian Jira, Project Expert, MS SharePoint, BIM, DCIM. Внедрение сервисов AI/ML и практик ИИ для оптимизации рабочих и проектных задач.</p>
+                    <div class="p-6 border border-slate-200 dark:border-slate-800 rounded-xl hover:border-brand-300 dark:hover:border-brand-500 hover:shadow-md transition-all bg-white dark:bg-slate-900">
+                        <i class="ph ph-brain text-4xl text-brand-600 dark:text-brand-400 mb-4"></i>
+                        <h3 class="font-bold text-xl mb-2 text-slate-900 dark:text-white">
+                            <span class="lang-ru">Инструменты &amp; AI</span>
+                            <span class="lang-en hidden">Tools &amp; AI Workflows</span>
+                        </h3>
+                        <p class="text-slate-600 dark:text-slate-400 text-sm">
+                            <span class="lang-ru">MS Project, Atlassian Jira, Project Expert, MS SharePoint, BIM, DCIM. Внедрение сервисов AI/ML и практик ИИ для оптимизации рабочих и проектных задач.</span>
+                            <span class="lang-en hidden">MS Project, Atlassian Jira, Project Expert, MS SharePoint, BIM, DCIM. Practical adoption of AI/ML platforms and LLM workflows for project optimization.</span>
+                        </p>
                     </div>
 
-                    <div class="p-6 border border-slate-200 rounded-xl hover:border-brand-300 hover:shadow-md transition-all bg-white">
-                        <i class="ph ph-rocket-launch text-4xl text-brand-600 mb-4"></i>
-                        <h3 class="font-bold text-xl mb-2 text-slate-900">Образование и Сертификаты</h3>
-                        <p class="text-slate-600 text-sm">РЭУ им. Г.В. Плеханова (Руководство проектами и программами), Инженер-электрик (БГСХА). Сертификаты: PRIME (2025), PME (2019), APC Datacenter Design, Cisco CCNA. Английский — B2.</p>
+                    <div class="p-6 border border-slate-200 dark:border-slate-800 rounded-xl hover:border-brand-300 dark:hover:border-brand-500 hover:shadow-md transition-all bg-white dark:bg-slate-900">
+                        <i class="ph ph-rocket-launch text-4xl text-brand-600 dark:text-brand-400 mb-4"></i>
+                        <h3 class="font-bold text-xl mb-2 text-slate-900 dark:text-white">
+                            <span class="lang-ru">Образование и Сертификаты</span>
+                            <span class="lang-en hidden">Education &amp; Certifications</span>
+                        </h3>
+                        <p class="text-slate-600 dark:text-slate-400 text-sm">
+                            <span class="lang-ru">РЭУ им. Г.В. Плеханова (Руководство проектами и программами), Инженер-электрик (БГСХА). Сертификаты: PRIME (2025), PME (2019), APC Datacenter Design, Cisco CCNA. Английский — B2.</span>
+                            <span class="lang-en hidden">Plekhanov Russian University of Economics (Project &amp; Program Management), M.S. in Electrical Engineering. Certified PRIME (2025), PME (2019), APC Datacenter Design, Cisco CCNA. English — B2.</span>
+                        </p>
                     </div>
                 </div>
             </div>
@@ -415,9 +653,13 @@
     <!-- Секция Контакты -->
     <section id="contact" class="py-24 bg-brand-950 text-white">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal">
-            <h2 class="text-3xl md:text-4xl font-bold mb-6">Свяжитесь со мной</h2>
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">
+                <span class="lang-ru">Свяжитесь со мной</span>
+                <span class="lang-en hidden">Get in Touch</span>
+            </h2>
             <p class="text-brand-100 mb-12 text-lg max-w-2xl mx-auto font-light">
-                Открыт к обсуждению масштабных проектов и программ в сильных командах. Предпочитаемый способ связи — WhatsApp, телефон или электронная почта.
+                <span class="lang-ru">Открыт к обсуждению масштабных проектов и программ в сильных командах. Предпочитаемый способ связи — WhatsApp, телефон или электронная почта.</span>
+                <span class="lang-en hidden">Open to discussing large-scale IT projects, transformation programs, and leadership roles. Preferred contact channels: WhatsApp, phone, or email.</span>
             </p>
             
             <div class="flex flex-col sm:flex-row justify-center gap-6">
@@ -439,13 +681,72 @@
 
     <!-- Footer -->
     <footer class="py-8 text-center bg-brand-950 text-brand-200/50 border-t border-white/10 text-sm">
-        <p>© 2026 Роман Антонов. Руководитель IT-проектов и программ (PME, PRIME).</p>
+        <p>
+            <span class="lang-ru">© 2026 Роман Антонов. Руководитель IT-проектов и программ (PME, PRIME).</span>
+            <span class="lang-en hidden">© 2026 Roman Antonov. IT Project &amp; Program Manager (PME, PRIME).</span>
+        </p>
     </footer>
 
-    <!-- JavaScript для анимаций и Canvas -->
+    <!-- JavaScript для анимаций, темы, языка и Canvas -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // Анимация при скролле
+            // 1. Переключение тёмной темы
+            const themeToggle = document.getElementById('theme-toggle');
+            const themeIcon = document.getElementById('theme-icon');
+            const htmlEl = document.documentElement;
+
+            function applyTheme(isDark) {
+                if (isDark) {
+                    htmlEl.classList.add('dark');
+                    themeIcon.classList.replace('ph-moon', 'ph-sun');
+                } else {
+                    htmlEl.classList.remove('dark');
+                    themeIcon.classList.replace('ph-sun', 'ph-moon');
+                }
+            }
+
+            const savedTheme = localStorage.getItem('portfolio_theme');
+            if (savedTheme === 'dark') {
+                applyTheme(true);
+            }
+
+            themeToggle.addEventListener('click', () => {
+                const isDark = !htmlEl.classList.contains('dark');
+                applyTheme(isDark);
+                localStorage.setItem('portfolio_theme', isDark ? 'dark' : 'light');
+            });
+
+            // 2. Переключение языка (RU / EN)
+            const langToggle = document.getElementById('lang-toggle');
+            const ruEls = document.querySelectorAll('.lang-ru');
+            const enEls = document.querySelectorAll('.lang-en');
+            let currentLang = localStorage.getItem('portfolio_lang') || 'ru';
+
+            function applyLang(lang) {
+                currentLang = lang;
+                htmlEl.lang = lang;
+                if (lang === 'en') {
+                    ruEls.forEach(el => el.classList.add('hidden'));
+                    enEls.forEach(el => el.classList.remove('hidden'));
+                    langToggle.textContent = 'RU';
+                    document.title = 'Roman Antonov | IT Project & Program Manager (PME, PRIME)';
+                } else {
+                    enEls.forEach(el => el.classList.add('hidden'));
+                    ruEls.forEach(el => el.classList.remove('hidden'));
+                    langToggle.textContent = 'EN';
+                    document.title = 'Роман Антонов | Руководитель IT-проектов и программ (PME, PRIME)';
+                }
+            }
+
+            applyLang(currentLang);
+
+            langToggle.addEventListener('click', () => {
+                const nextLang = currentLang === 'ru' ? 'en' : 'ru';
+                applyLang(nextLang);
+                localStorage.setItem('portfolio_lang', nextLang);
+            });
+
+            // 3. Анимация при скролле
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach((entry) => {
                     if (entry.isIntersecting) {
@@ -458,7 +759,7 @@
                 observer.observe(el);
             });
 
-            // Анимация нейросети (Canvas Particles)
+            // 4. Анимация нейросети (Canvas Particles)
             const canvas = document.getElementById('ai-canvas');
             const ctx = canvas.getContext('2d');
             const container = document.getElementById('hero-bg-container');
@@ -489,7 +790,7 @@
                 draw() {
                     ctx.beginPath();
                     ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-                    ctx.fillStyle = '#2563eb'; // brand-600
+                    ctx.fillStyle = htmlEl.classList.contains('dark') ? '#60a5fa' : '#2563eb';
                     ctx.fill();
                 }
             }
@@ -502,6 +803,9 @@
 
             function animate() {
                 ctx.clearRect(0, 0, width, height);
+                const isDark = htmlEl.classList.contains('dark');
+                const lineRgb = isDark ? '96, 165, 250' : '37, 99, 235';
+
                 for (let i = 0; i < particles.length; i++) {
                     particles[i].update();
                     particles[i].draw();
@@ -514,7 +818,7 @@
                         
                         if (dist < 150) {
                             ctx.beginPath();
-                            ctx.strokeStyle = `rgba(37, 99, 235, ${0.2 * (1 - dist/150)})`;
+                            ctx.strokeStyle = `rgba(${lineRgb}, ${0.25 * (1 - dist/150)})`;
                             ctx.lineWidth = 1;
                             ctx.moveTo(particles[i].x, particles[i].y);
                             ctx.lineTo(particles[j].x, particles[j].y);
